@@ -30,6 +30,7 @@ function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   const apiURL: string = import.meta.env.VITE_SOCKET_ADDRESS;
+  console.log(apiURL);
   const navigate = useNavigate();
 
   useEffect(() => {
