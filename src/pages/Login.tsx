@@ -25,7 +25,7 @@ function Login({ loginUser, loginStatus }: LoginProps) {
   }, [loginStatus]);
   const [isLoading, setIsLoading] = useState(false);
   return (
-    <div>
+    <div className='h-screen w-screen overflow-hidden'>
       <Background />
       <motion.div
         animate={{
@@ -35,7 +35,7 @@ function Login({ loginUser, loginStatus }: LoginProps) {
         style={{ originX: 1, x: 0 }}
         className={
           animationDone
-            ? 'absolute w-[400px] top-[10vh] left-[calc(50vw-200px)] flex items-center flex-col'
+            ? 'absolute sm:w-[400px] w-[300px] left-[calc(50vw-150px)] top-[10vh] sm:left-[calc(50vw-200px)] flex items-center flex-col'
             : 'hidden'
         }
       >
