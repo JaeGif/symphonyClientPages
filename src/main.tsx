@@ -8,7 +8,7 @@ const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root') as Element);
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/symphonyClientPages/'>
       <QueryClientProvider client={queryClient}>
         <App />
       </QueryClientProvider>
