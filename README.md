@@ -30,6 +30,9 @@ This project was built to continue practicing the MERN stack, and to dive off th
 Fully Implemented Feautures:
 
 - Room searching and joining
+- Leaving rooms, rooms are deleted if all users leave
+- Creating new rooms
+- Searching by name and/or topic
 - Instant messaging with Socket.io
 - Messages saved to MongoDB Atlas
 - Room avatars and profile avatars
