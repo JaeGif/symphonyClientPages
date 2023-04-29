@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Bars from 'react-loading-icons/dist/esm/components/bars';
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 function ChangePassword() {
   const [password, setPassword] = useState<string>('');
@@ -49,13 +50,13 @@ function ChangePassword() {
           <img
             onClick={() => setVisible(!visible)}
             className='absolute top-0 right-2 h-6 cursor-pointer'
-            src='/assets/favicons/visible.svg'
+            src={`${baseURL}/assets/favicons/visible.svg`}
           />
         ) : (
           <img
             onClick={() => setVisible(!visible)}
             className='absolute top-0 right-2 h-6 cursor-pointer'
-            src='/assets/favicons/visible-off.svg'
+            src={`${baseURL}assets/favicons/visible-off.svg`}
           />
         )}
       </div>

@@ -3,6 +3,7 @@ import TailSpin from 'react-loading-icons/dist/esm/components/tail-spin';
 import { ThemeContext, TokenContext, UserContext } from '../../App';
 
 const apiURL: string = import.meta.env.VITE_SOCKET_ADDRESS;
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 type OptionsEllipsesProps = {
   room: string;
@@ -106,8 +107,8 @@ function OptionsEllipses({ room, refreshUserData }: OptionsEllipsesProps) {
         className='h-8 hidden sm:block'
         src={
           theme === 'dark'
-            ? `/assets/favicons/ellipses.svg`
-            : '/assets/favicons/ellipses-black.svg'
+            ? `${baseURL}/assets/favicons/ellipses.svg`
+            : `${baseURL}/assets/favicons/ellipses-black.svg`
         }
       />
     </div>

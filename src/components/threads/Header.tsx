@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { TokenContext } from '../../App';
 const apiURL = import.meta.env.VITE_SOCKET_ADDRESS;
+const baseURL = import.meta.env.VITE_BASE_URL;
 import { useOutletContext } from 'react-router';
 
 type HeaderProps = {
@@ -33,7 +34,7 @@ function Header({ room }: HeaderProps) {
         <img
           onClick={() => context.toggleChats()}
           className='h-8 sm:hidden hover:cursor-pointer'
-          src='/assets/favicons/back-arrow.svg'
+          src={`${baseURL}/assets/favicons/back-arrow.svg`}
           alt='check rooms'
         />
         <div className='dark:border-r-gray-600 border-r-gray-400 border-solid border-r p-1.5'>
@@ -54,7 +55,7 @@ function Header({ room }: HeaderProps) {
       {roomQuery.data && (
         <img
           className='h-10'
-          src={`/assets/favicons/${roomQuery.data.topic}.png`}
+          src={`${baseURL}/assets/favicons/${roomQuery.data.topic}.png`}
         />
       )}
     </div>

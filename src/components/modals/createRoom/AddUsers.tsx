@@ -5,6 +5,8 @@ import UserHead from '../../users/UserHead';
 import uniqid from 'uniqid';
 import { User } from '../../../types/Interfaces';
 const apiURL = import.meta.env.VITE_SOCKET_ADDRESS;
+const baseURL = import.meta.env.VITE_BASE_URL;
+
 type AddUsersProps = {
   handleUsersSelection: Function;
 };
@@ -67,7 +69,7 @@ function AddUsers({ handleUsersSelection }: AddUsersProps) {
                 <img
                   onClick={() => removeFromList(item.key)}
                   className='h-5 cursor-pointer'
-                  src='/assets/favicons/close.svg'
+                  src={`${baseURL}/assets/favicons/close.svg`}
                 />
               )}
             </div>

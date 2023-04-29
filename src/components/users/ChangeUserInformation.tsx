@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { FileUploader } from 'react-drag-drop-files';
 import { TokenContext, UserContext } from '../../App';
 import Bars from 'react-loading-icons/dist/esm/components/bars';
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 const apiURL: string = import.meta.env.VITE_SOCKET_ADDRESS;
 type ChangeUserInformationProps = {
@@ -133,7 +134,7 @@ function ChangeUserInformation({
             <img
               onClick={() => setImageFile(null)}
               className='h-12 w-12 cursor-pointer'
-              src='/assets/favicons/add-photo.svg'
+              src={`${baseURL}assets/favicons/add-photo.svg`}
             />
           </div>
         ) : (

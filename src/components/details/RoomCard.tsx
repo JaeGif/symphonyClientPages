@@ -3,6 +3,8 @@ import { UserContext, TokenContext } from '../../App';
 import { Room } from '../../types/Interfaces';
 
 const apiURL: string = import.meta.env.VITE_SOCKET_ADDRESS;
+const baseURL = import.meta.env.VITE_BASE_URL;
+
 type RoomCardProps = {
   room: Room;
   refreshUserData: Function;
@@ -57,14 +59,21 @@ function RoomCard({ room, refreshUserData }: RoomCardProps) {
         <div className='w-12 h-12 rounded-3xl bg-gray-900 overflow-hidden flex justify-center items'>
           <img
             className='w-12'
-            src={room.avatar ? room.avatar : '/assets/favicons/symphony.svg'}
+            src={
+              room.avatar
+                ? room.avatar
+                : `${baseURL}/assets/favicons/symphony.svg`
+            }
             alt='img'
           />
         </div>
         <div className='w-[calc(100%-3rem)]'>
           <span className='flex justify-between'>
             <p>{room.title}</p>
-            <img className='h-8' src={`/assets/favicons/${room.topic}.png`} />
+            <img
+              className='h-8'
+              src={`${baseURL}/assets/favicons/${room.topic}.png`}
+            />
           </span>
           <p>Members: {room.users.length}</p>
         </div>

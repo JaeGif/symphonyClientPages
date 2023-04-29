@@ -6,6 +6,8 @@ import { BallTriangle } from 'react-loading-icons';
 import OptionsEllipses from '../utilities/OptionsEllipses';
 import uniqid from 'uniqid';
 const apiURL: string = import.meta.env.VITE_SOCKET_ADDRESS;
+const baseURL = import.meta.env.VITE_BASE_URL;
+
 type CurrentChatsProps = {
   refreshUserData: Function;
   isShowing: boolean;
@@ -54,7 +56,11 @@ function CurrentChats({ refreshUserData, isShowing }: CurrentChatsProps) {
                 <div className='h-8 max-w-8'>
                   <img
                     className='h-8 max-w-[32px]'
-                    src={`${query.data.avatar}`}
+                    src={
+                      query.data.avatar
+                        ? `${query.data.avatar}`
+                        : `${baseURL}/assets/favicons/symphony.svg`
+                    }
                   />
                 </div>
                 <p

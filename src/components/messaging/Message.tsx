@@ -12,6 +12,7 @@ import { AnimatePresence } from 'framer-motion';
 import TextareaAutosize from 'react-textarea-autosize';
 
 const apiURL: string = import.meta.env.VITE_SOCKET_ADDRESS;
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 type MessageProps = {
   message: MessageType;
@@ -134,8 +135,8 @@ function Message({ message, removeMessage }: MessageProps) {
             }}
             src={
               theme === 'dark'
-                ? '/assets/favicons/ellipses.svg'
-                : '/assets/favicons/ellipses-black.svg'
+                ? `${baseURL}/assets/favicons/ellipses.svg`
+                : `${baseURL}/assets/favicons/ellipses-black.svg`
             }
             alt='message options'
           />

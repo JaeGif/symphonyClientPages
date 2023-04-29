@@ -6,6 +6,8 @@ import { useQueries } from '@tanstack/react-query';
 import UserHead from './UserHead';
 import useIsCurrentUser from '../../hooks/useIsCurrentUser';
 import uniqid from 'uniqid';
+const baseURL = import.meta.env.VITE_BASE_URL;
+
 const apiURL: string = import.meta.env.VITE_SOCKET_ADDRESS;
 type UserCardProps = {
   logoutUser?: Function;
@@ -80,7 +82,7 @@ function UserCard({ logoutUser }: UserCardProps) {
                       <div className='h-6 w-6 rounded-3xl overflow-hidden'>
                         <img
                           className='h-6 w-6'
-                          src='/assets/favicons/study.png'
+                          src={`${baseURL}assets/favicons/study.png`}
                         />
                       </div>
                     )}
@@ -101,7 +103,7 @@ function UserCard({ logoutUser }: UserCardProps) {
           onClick={() => logoutUser!()}
           className='flex items-center mt-4 w-fit gap-1 hover:cursor-pointer'
         >
-          <img className='h-6' src='/assets/favicons/logout.svg' />
+          <img className='h-6' src={`${baseURL}/assets/favicons/logout.svg`} />
           <p className='text-red-600 text-center'>Logout</p>
         </div>
       )}

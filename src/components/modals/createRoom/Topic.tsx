@@ -3,6 +3,8 @@ type TopicProps = {
   title: string;
   icon: string;
 };
+const baseURL = import.meta.env.VITE_BASE_URL;
+
 function Topic({ handleTopicSelection, title = 'Title', icon }: TopicProps) {
   return (
     <div
@@ -13,7 +15,7 @@ function Topic({ handleTopicSelection, title = 'Title', icon }: TopicProps) {
     >
       <img className='h-10' src={icon} alt='topic icon' />
       <p className='font-bold'>{title}</p>
-      <img src='/assets/favicons/next.svg' alt='right chevron' />
+      <img src={`${baseURL}/assets/favicons/next.svg`} alt='right chevron' />
     </div>
   );
 }
