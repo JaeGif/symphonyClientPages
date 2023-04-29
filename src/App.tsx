@@ -184,7 +184,7 @@ function App() {
                   </Route>
                 </Route>
               ) : (
-                <Route path='*' element={<Navigate to='/login' />} />
+                <Route path='/*' element={<Navigate to='/login' />} />
               )}
               <Route path='*' element={<Error404 />} />
             </Routes>
