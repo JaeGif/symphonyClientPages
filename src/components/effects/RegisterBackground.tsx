@@ -5,12 +5,12 @@ function RegisterBackground() {
   return (
     <div className='relative w-screen h-screen overflow-hidden'>
       <img
-        className={`w-[2160px] object-cover max-h-[3840px] min-h-full ${style.registerAnimation} ${style.registerImg} absolute`}
+        className={`object-cover max-h-[3840px] min-h-full ${style.registerAnimation} ${style.registerImg} absolute`}
         src={`${baseURL}/assets/images/registerBackground.png`}
         alt='background grey'
       ></img>
       <img
-        className='w-[2160px] object-cover max-h-[3840px] min-h-full block'
+        className='object-cover max-h-[3840px] min-h-full block'
         src={`${baseURL}/assets/images/registerOriginal.png`}
         alt='background color'
       ></img>
