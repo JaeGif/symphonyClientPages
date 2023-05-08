@@ -30,7 +30,6 @@ function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   const apiURL: string = import.meta.env.VITE_SOCKET_ADDRESS;
-  console.log(apiURL);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,6 +45,7 @@ function App() {
     if (decode.expire * 1000 < new Date().getTime()) {
       clearExpiredData();
       console.log('Token Expired');
+      navigate('/login', { replace: true });
     } else {
       setLoggedInUser(data.user);
       setToken(data.token);
@@ -68,15 +68,15 @@ function App() {
       },
     });
     const data = await res.json();
+    window.localStorage.setItem(
+      'user',
+      JSON.stringify({ user: data.user, token: token })
+    );
     setLoggedInUser(data.user);
     if (!refetch) {
       setIsLoggedIn(true);
       navigate('/explore', { replace: true });
     }
-    window.localStorage.setItem(
-      'user',
-      JSON.stringify({ user: data.user, token: token })
-    );
   };
   const loginUser = async (
     username: string,
@@ -184,7 +184,7 @@ function App() {
                   </Route>
                 </Route>
               ) : (
-                <Route path='/*' element={<Navigate to='/login' />} />
+                <Route path='*' element={<Navigate to='/login' />} />
               )}
               <Route path='*' element={<Error404 />} />
             </Routes>
